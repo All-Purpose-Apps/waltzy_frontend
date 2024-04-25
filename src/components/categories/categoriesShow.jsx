@@ -1,15 +1,19 @@
 
-import { Show, SimpleShowLayout, TextField, Datagrid, ReferenceManyField } from 'react-admin';
+import { Show, SimpleShowLayout, TextField, Datagrid, ReferenceManyField, ReferenceField } from 'react-admin';
 
-export const CategoryShow = () => (
-    <Show>
-        <SimpleShowLayout>
-            <TextField source="name" />
-            <ReferenceManyField reference="dances" source="dances" target="" label="Dances">
-                <Datagrid>
-                    <TextField source="title" />
-                </Datagrid>
-            </ReferenceManyField>
-        </SimpleShowLayout>
-    </Show>
-);
+export const CategoryShow = (props) => {
+    console.log(props)
+
+    return (
+        <Show {...props}>
+            <SimpleShowLayout >
+                <TextField source="name" />
+                <ReferenceManyField reference="dances" target='category' source="id" label="Dances">
+                    <Datagrid rowClick="show">
+                        <TextField source="title" />
+                    </Datagrid>
+                </ReferenceManyField>
+            </SimpleShowLayout>
+        </Show>
+    );
+}

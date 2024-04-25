@@ -8,7 +8,7 @@ export const DanceCreate = () => {
         <Create redirect="list">
             <SimpleForm>
                 <TextInput source="title" />
-                <ReferenceInput reference="danceCategory" source="_id">
+                <ReferenceInput reference="danceCategory" source="danceCategory">
                     <SelectInput
                         label="Category"
                         source="_id"

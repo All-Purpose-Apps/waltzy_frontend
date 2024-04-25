@@ -9,10 +9,6 @@ export const dataProvider: DataProvider = {
     const response = await fetchUtils.fetchJson(
       `${API_URL}/${resource}?_page=${page}&_limit=${perPage}&_sort=${field}&_order=${order}`
     );
-    console.log(
-      `${API_URL}/${resource}?_page=${page}&_limit=${perPage}&_sort=${field}&_order=${order}`
-    );
-    console.log(`getList: ${resource}`, { data: response.json });
     return {
       data: response.json,
       total: parseInt(response.headers.get("X-Total-Count") || "", 10),
@@ -21,28 +17,26 @@ export const dataProvider: DataProvider = {
   getOne: async (resource, params) => {
     const response = await fetch(`${API_URL}/${resource}/${params.id}`);
     const data = await response.json();
-    console.log(`getOne: ${resource}`, { data: data });
     return { data: data };
   },
   getMany: async (resource, params) => {
     const response = await fetch(`${API_URL}/${resource}/${params.ids}`);
     const data = await response.json();
-    console.log(`getMany: ${resource}`, { data: [data] });
     return { data: [data] };
   },
   getManyReference: async (resource, params) => {
-    const response = await fetch(`${API_URL}/${resource}/${params.target}`);
+    const response = await fetch(
+      `${API_URL}/${resource}/${params.target}/${params.id}`
+    );
     const data = await response.json();
-    console.log(`getManyReference: ${resource}`, { data: [data] });
-    return { data: [data] };
+    console.log(data);
+    return { data: data.data, total: data.total };
   },
   update: async (resource, params) => {
-    console.log(params);
     const response = await axios.put(
       `${API_URL}/${resource}/${params.id}`,
       params.data
     );
-    console.log(`update: ${resource}`, { data: response.data });
     return { data: response.data };
   },
   updateMany: async (resource, params) => {
@@ -51,13 +45,10 @@ export const dataProvider: DataProvider = {
       body: JSON.stringify(params.data),
     });
     const data = await response.json();
-    console.log(`updateMany: ${resource}`, { data: [data] });
     return { data: [data] };
   },
   create: async (resource, params) => {
-    console.log(params.data);
     const response = await axios.post(`${API_URL}/${resource}`, params.data);
-    console.log(`create: ${resource}`, { data: response.data });
     return { data: response.data };
   },
   delete: async (resource, params) => {
@@ -65,7 +56,6 @@ export const dataProvider: DataProvider = {
       method: "DELETE",
     });
     const data = await response.json();
-    console.log(`delete: ${resource}`, { data: data });
 
     return { data: data };
   },
@@ -74,7 +64,6 @@ export const dataProvider: DataProvider = {
       method: "DELETE",
     });
     const data = await response.json();
-    console.log(`deleteMany: ${resource}`, { data: [data] });
     return { data: [data] };
   },
 };

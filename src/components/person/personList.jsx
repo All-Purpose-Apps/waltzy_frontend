@@ -1,8 +1,8 @@
 import { Datagrid, DateField, List, NumberField, TextField, ReferenceField } from 'react-admin';
 
 export const PersonList = () => (
-    <List>
-        <Datagrid rowClick="edit">
+    <List exporter={false}>
+        <Datagrid rowClick="show">
             <TextField source="firstName" />
             <TextField source="lastName" />
             <NumberField source="age" />

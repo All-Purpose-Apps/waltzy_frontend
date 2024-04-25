@@ -1,8 +1,8 @@
-import { Datagrid, DateField, EmailField, List, ReferenceField, TextField } from 'react-admin';
+import { Datagrid, EmailField, List, TextField } from 'react-admin';
 
 export const StudioList = () => (
-    <List>
-        <Datagrid rowClick="edit">
+    <List exporter={false}>
+        <Datagrid rowClick="show">
             <TextField source="name" />
             <TextField source="location" />
             <TextField source="phone" />
