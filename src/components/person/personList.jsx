@@ -1,18 +1,15 @@
-import { Datagrid, DateField, List, NumberField, TextField } from 'react-admin';
+import { Datagrid, DateField, List, NumberField, TextField, ReferenceField } from 'react-admin';
 
 export const PersonList = () => (
     <List>
         <Datagrid rowClick="edit">
-            <TextField source="id" />
             <TextField source="firstName" />
             <TextField source="lastName" />
             <NumberField source="age" />
-            <TextField source="ageCategory" />
-            <TextField source="level" />
-            <TextField source="studio" />
-            <TextField source="title" />
-            <TextField source="identifier" />
-            <DateField source="__v" />
+            <ReferenceField reference="studios" source="studio" label="Studio" link="show">
+                <TextField source="name" />
+            </ReferenceField>
+            <TextField source="identifier" sx={{ textTransform: 'capitalize' }} />
         </Datagrid>
     </List>
 );

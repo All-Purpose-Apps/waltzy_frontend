@@ -55,6 +55,7 @@ export const dataProvider: DataProvider = {
     return { data: [data] };
   },
   create: async (resource, params) => {
+    console.log(params.data);
     const response = await axios.post(`${API_URL}/${resource}`, params.data);
     console.log(`create: ${resource}`, { data: response.data });
     return { data: response.data };
