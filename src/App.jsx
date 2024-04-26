@@ -4,6 +4,8 @@ import {
   ListGuesser,
   EditGuesser,
   ShowGuesser,
+  radiantLightTheme,
+  radiantDarkTheme,
 } from "react-admin";
 import { dataProvider } from "./dataProvider";
 import { FirebaseAuthProvider } from "react-admin-firebase";
@@ -16,6 +18,7 @@ import { CategoryEdit } from "./components/categories/categoriesEdit";
 import { PersonList } from "./components/person/personList";
 import { PersonShow } from "./components/person/personShow";
 import { PersonCreate } from "./components/person/personCreate";
+import { PersonEdit } from "./components/person/personEdit";
 //Dance
 import { DanceList } from "./components/dance/danceList";
 import { DanceShow } from "./components/dance/danceShow";
@@ -37,6 +40,8 @@ export const App = () => (
     dataProvider={dataProvider}
     authProvider={authProvider}
     loginPage={CustomLoginPage}
+    theme={radiantDarkTheme}
+    darkTheme={radiantLightTheme}
   >
     <Resource
       name="danceCategory"
@@ -58,6 +63,7 @@ export const App = () => (
       list={PersonList}
       create={PersonCreate}
       show={PersonShow}
+      edit={PersonEdit}
     />
     <Resource
       name="studios"
