@@ -6,26 +6,38 @@ import {
   ShowGuesser,
 } from "react-admin";
 import { dataProvider } from "./dataProvider";
+import { FirebaseAuthProvider } from "react-admin-firebase";
 //Category
 import { CategoryList } from "./components/categories/categoriesList";
-import { CategoryEdit } from "./components/categories/categoriesEdit";
-import { CategoryCreate } from "./components/categories/categoriesCreate";
 import { CategoryShow } from "./components/categories/categoriesShow";
+import { CategoryCreate } from "./components/categories/categoriesCreate";
+import { CategoryEdit } from "./components/categories/categoriesEdit";
 //Person
 import { PersonList } from "./components/person/personList";
-import { PersonCreate } from "./components/person/personCreate";
 import { PersonShow } from "./components/person/personShow";
+import { PersonCreate } from "./components/person/personCreate";
 //Dance
-import { DanceCreate } from "./components/dance/danceCreate";
 import { DanceList } from "./components/dance/danceList";
 import { DanceShow } from "./components/dance/danceShow";
+import { DanceCreate } from "./components/dance/danceCreate";
+import { DanceEdit } from "./components/dance/danceEdit";
 //Studio
 import { StudioList } from "./components/studios/studioList";
-import { StudioCreate } from "./components/studios/studioCreate";
 import { StudioShow } from "./components/studios/studioShow";
+import { StudioCreate } from "./components/studios/studioCreate";
+import { StudioEdit } from "./components/studios/studioEdit";
+//auth components
+import CustomLoginPage from "./components/authComponents/loginComponent";
+//firebase auth
+import { config } from "./firebaseConfig";
+const authProvider = FirebaseAuthProvider(config, {});
 
 export const App = () => (
-  <Admin dataProvider={dataProvider}>
+  <Admin
+    dataProvider={dataProvider}
+    authProvider={authProvider}
+    loginPage={CustomLoginPage}
+  >
     <Resource
       name="danceCategory"
       options={{ label: "Categories" }}
@@ -39,6 +51,7 @@ export const App = () => (
       list={DanceList}
       create={DanceCreate}
       show={DanceShow}
+      edit={DanceEdit}
     />
     <Resource
       name="person"
@@ -51,6 +64,7 @@ export const App = () => (
       list={StudioList}
       create={StudioCreate}
       show={StudioShow}
+      edit={StudioEdit}
     />
   </Admin>
 );

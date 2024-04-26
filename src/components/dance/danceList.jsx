@@ -1,12 +1,10 @@
-import { Datagrid, List, ReferenceField, TextField } from 'react-admin';
+import { Datagrid, List, TextField } from 'react-admin';
 
 export const DanceList = () => (
-    <List exporter={false}>
+    <List exporter={false} >
         <Datagrid rowClick="show">
             <TextField source="title" />
-            <ReferenceField reference="danceCategory" source="danceCategory._id" label="Category" link="show">
-                <TextField source="name" />
-            </ReferenceField>
+            <TextField source="danceCategory.name" label="Dance Category" />
         </Datagrid>
     </List>
 );

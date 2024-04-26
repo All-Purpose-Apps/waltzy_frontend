@@ -29,7 +29,6 @@ export const dataProvider: DataProvider = {
       `${API_URL}/${resource}/${params.target}/${params.id}`
     );
     const data = await response.json();
-    console.log(data);
     return { data: data.data, total: data.total };
   },
   update: async (resource, params) => {
