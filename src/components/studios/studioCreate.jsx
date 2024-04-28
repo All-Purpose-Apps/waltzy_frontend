@@ -1,7 +1,7 @@
 import { DateInput, Create, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
 
 export const StudioCreate = () => (
-    <Create>
+    <Create redirect="list">
         <SimpleForm>
             <TextInput source="name" />
             <TextInput source="location" />

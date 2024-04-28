@@ -7,6 +7,7 @@ export const dataProvider = {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
     const response = await fetchUtils.fetchJson(`${API_URL}/${resource}?_page=${page}&_limit=${perPage}&_sort=${field}&_order=${order}`);
+    console.log(response.json);
     return {
       data: response.json,
       total: parseInt(response.headers.get('X-Total-Count') || '', 10),

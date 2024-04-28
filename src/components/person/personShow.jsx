@@ -1,4 +1,4 @@
-import { DateField, NumberField, ReferenceField, Show, SimpleShowLayout, TextField } from 'react-admin';
+import { DateField, NumberField, ReferenceField, Show, SimpleShowLayout, TextField, DeleteButton } from 'react-admin';
 
 export const PersonShow = () => (
     <Show>
@@ -10,6 +10,7 @@ export const PersonShow = () => (
                 <TextField source="name" />
             </ReferenceField>
             <TextField source="identifier" />
+            <DeleteButton mutationMode="pessimistic" />
         </SimpleShowLayout>
     </Show>
 );

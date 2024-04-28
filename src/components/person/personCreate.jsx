@@ -1,7 +1,7 @@
 import { Create, SimpleForm, TextInput, NumberInput, SelectInput, ReferenceField, ReferenceInput } from 'react-admin';
 
 export const PersonCreate = () => (
-    <Create>
+    <Create redirect="list">
         <SimpleForm>
             <TextInput source="firstName" />
             <TextInput source="lastName" />
