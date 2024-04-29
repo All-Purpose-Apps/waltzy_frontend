@@ -92,30 +92,29 @@ export const App = () => (
       icon={PersonIcon}
     />
     <Resource
-      name="danceCategory"
-      options={{ label: "Categories" }}
-      list={CategoryList}
-      edit={CategoryEdit}
-      create={CategoryCreate}
-      show={CategoryShow}
-      icon={ClassIcon}
-    />
-    <Resource
-      name="dances"
-      list={DanceList}
-      create={DanceCreate}
-      show={DanceShow}
-      edit={DanceEdit}
-      icon={DirectionsRunIcon}
-    />
-
-    <Resource
       name="studios"
       list={StudioList}
       create={StudioCreate}
       show={StudioShow}
       edit={StudioEdit}
       icon={DomainIcon}
+    />
+    <Resource
+      name="danceCategory"
+      options={{ label: "Categories" }}
+      list={CategoryList}
+      // edit={CategoryEdit}
+      // create={CategoryCreate}
+      show={CategoryShow}
+      icon={ClassIcon}
+    />
+    <Resource
+      name="dances"
+      list={DanceList}
+      // create={DanceCreate}
+      show={DanceShow}
+      // edit={DanceEdit}
+      icon={DirectionsRunIcon}
     />
     <CustomRoutes>
       <Route path="/home" element={<Home />} />
