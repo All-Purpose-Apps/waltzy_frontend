@@ -5,8 +5,12 @@ export const CoupleShow = () => (
         <SimpleShowLayout>
             <TextField source="leader.fullName" label="Leader" />
             <TextField source="follower.fullName" label="Follower" />
-            <TextField source="dance.title" label="Dance" />
-            <TextField source="dance.danceCategory.name" label="Dance Category" />
+            <ReferenceField reference="dances" source="dance._id" label="Dance" link="show">
+                <TextField source="title" />
+            </ReferenceField>
+            <ReferenceField reference="dances" source="dance._id" label="Dance Category" link="show">
+                <TextField source="danceCategory.name" />
+            </ReferenceField>
             <TextField source="ageCategory" sx={{ textTransform: 'uppercase' }} />
             <TextField source="level" sx={{ textTransform: 'capitalize' }} />
         </SimpleShowLayout>

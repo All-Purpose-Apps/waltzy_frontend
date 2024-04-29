@@ -35,8 +35,13 @@ import { StudioShow } from "./components/studios/studioShow";
 import { StudioEdit } from "./components/studios/studioEdit";
 //Couples
 import { CouplesList } from "./components/couples/couplesList";
+import { CoupleCreate } from "./components/couples/couplesCreate";
 import { CoupleShow } from "./components/couples/couplesShow";
 import { CoupleEdit } from "./components/couples/couplesEdit";
+//Heats
+import { HeatList } from "./components/heats/heatsList";
+import { HeatCreate } from "./components/heats/heatCreate";
+import { HeatShow } from "./components/heats/heatsShow";
 //layouts
 import { MainLayout } from "./layouts/MainLayout";
 //icons
@@ -45,6 +50,7 @@ import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 import PersonIcon from '@mui/icons-material/Person';
 import DomainIcon from '@mui/icons-material/Domain';
 import PeopleIcon from '@mui/icons-material/People';
+import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 //auth components
 import CustomLoginPage from "./components/authComponents/loginComponent";
 //firebase auth
@@ -56,13 +62,21 @@ export const App = () => (
     dataProvider={dataProvider}
     authProvider={authProvider}
     loginPage={CustomLoginPage}
-    theme={radiantDarkTheme}
-    darkTheme={radiantLightTheme}
+    theme={radiantLightTheme}
+    darkTheme={radiantDarkTheme}
     layout={MainLayout}
   >
     <Resource
+      name="heats"
+      list={HeatList}
+      show={HeatShow}
+      create={HeatCreate}
+      icon={LocalFireDepartmentIcon}
+    />
+    <Resource
       name="couples"
       list={CouplesList}
+      create={CoupleCreate}
       show={CoupleShow}
       edit={CoupleEdit}
       icon={PeopleIcon}

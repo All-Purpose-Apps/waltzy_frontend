@@ -1,4 +1,5 @@
 import { Title } from 'react-admin'
+
 import Container from '@mui/material/Container';
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
         <>
             <Title title="Home" />
             <Container>
-                Home
+                Hello
             </Container>
         </>
     )

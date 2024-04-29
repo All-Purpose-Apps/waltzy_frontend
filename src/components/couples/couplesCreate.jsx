@@ -1,7 +1,7 @@
-import { SelectInput, Edit, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
+import { SelectInput, Create, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
 
-export const CoupleEdit = () => (
-    <Edit>
+export const CoupleCreate = () => (
+    <Create redirect="list">
         <SimpleForm>
             <ReferenceInput source="leader._id" reference="person">
                 <SelectInput label="Leader" source="_id" optionText={record => `${record.firstName} ${record.lastName}`} />
@@ -9,7 +9,7 @@ export const CoupleEdit = () => (
             <ReferenceInput source="follower._id" reference="person">
                 <SelectInput label="Follower" source="_id" optionText={record => `${record.firstName} ${record.lastName}`} />
             </ReferenceInput>
-            <ReferenceInput source="dance._id" reference="dances">
+            <ReferenceInput source="dance._id" reference="dances" sort={{ field: 'danceCategory', order: 'ASC' }} perPage={100}>
                 <SelectInput label="Dance" source="_id" optionText={record => `${record.danceCategory.name} - ${record.title} `} />
             </ReferenceInput>
             <TextInput source="ageCategory" />
@@ -20,5 +20,5 @@ export const CoupleEdit = () => (
             <TextInput source="deductions" />
             <TextInput source="comments" />
         </SimpleForm>
-    </Edit>
+    </Create>
 );

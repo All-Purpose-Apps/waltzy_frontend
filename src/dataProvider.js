@@ -7,7 +7,6 @@ export const dataProvider = {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
     const response = await fetchUtils.fetchJson(`${API_URL}/${resource}?_page=${page}&_limit=${perPage}&_sort=${field}&_order=${order}`);
-    console.log(response.json);
     return {
       data: response.json,
       total: parseInt(response.headers.get('X-Total-Count') || '', 10),
@@ -16,12 +15,14 @@ export const dataProvider = {
   getOne: async (resource, params) => {
     const response = await fetch(`${API_URL}/${resource}/${params.id}`);
     const data = await response.json();
-    return { data: data };
+    const result = Array.isArray(data) ? data[0] : data;
+    return { data: result };
   },
   getMany: async (resource, params) => {
     const response = await fetch(`${API_URL}/${resource}/${params.ids}`);
     const data = await response.json();
-    return { data: [data] };
+    const result = Array.isArray(data) ? data : [data];
+    return { data: result };
   },
   getManyReference: async (resource, params) => {
     const response = await fetch(`${API_URL}/${resource}/${params.target}/${params.id}`);
@@ -29,6 +30,7 @@ export const dataProvider = {
     return { data: data.data, total: data.total };
   },
   update: async (resource, params) => {
+    console.log(params.data);
     const response = await axios.put(`${API_URL}/${resource}/${params.id}`, params.data);
     return { data: response.data };
   },
