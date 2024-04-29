@@ -22,21 +22,18 @@ export const HeatShow = () => (
                     )
                 }} />
             </ArrayField>
-            <ArrayField source="competitions">
+            <ArrayField source="couples" label="Competitions">
                 <WithListContext render={({ data }) => {
+
                     function uniqueDanceCombinations(danceArray) {
                         const seenCombinations = new Set();
 
                         const uniqueArray = danceArray.filter(item => {
-                            // Create a unique string key for each combination
-                            const combination = `${item.dance.title}-${item.danceCategory.name}`;
-
-                            // Check if this combination has already been seen
+                            const combination = `${item.dance.title}-${item.dance.danceCategory.name}`;
                             if (seenCombinations.has(combination)) {
-                                return false; // Skip this item because it's a duplicate
+                                return false;
                             }
 
-                            // Otherwise, add it to the set and keep this item in the array
                             seenCombinations.add(combination);
                             return true;
                         });
@@ -44,12 +41,14 @@ export const HeatShow = () => (
                         return uniqueArray;
                     }
 
-                    const uniqueDances = uniqueDanceCombinations(data);
+                    const uniqueArray = uniqueDanceCombinations(data);
                     return (
                         <ul>
-                            {uniqueDances.map(({ danceCategory, dance }, index) => (
-                                <li key={index} style={{ listStyleType: 'none' }}>{danceCategory.name} - {dance.title}</li>
-                            ))}
+                            {uniqueArray.map((item, index) => {
+                                return (
+                                    <li key={index} style={{ listStyleType: 'none' }}>{item.dance.danceCategory.name} - {item.dance.title}</li>
+                                )
+                            })}
                         </ul>
                     )
                 }} />

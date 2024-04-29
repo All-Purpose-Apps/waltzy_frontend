@@ -42,6 +42,7 @@ import { CoupleEdit } from "./components/couples/couplesEdit";
 import { HeatList } from "./components/heats/heatsList";
 import { HeatCreate } from "./components/heats/heatCreate";
 import { HeatShow } from "./components/heats/heatsShow";
+import { HeatEdit } from "./components/heats/heatEdit";
 //layouts
 import { MainLayout } from "./layouts/MainLayout";
 //icons
@@ -71,6 +72,7 @@ export const App = () => (
       list={HeatList}
       show={HeatShow}
       create={HeatCreate}
+      edit={HeatEdit}
       icon={LocalFireDepartmentIcon}
     />
     <Resource
