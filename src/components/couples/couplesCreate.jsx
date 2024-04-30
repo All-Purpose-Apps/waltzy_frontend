@@ -39,11 +39,6 @@ export const CoupleCreate = () => (
             </ReferenceInput>
             <SelectInput source="ageCategory" choices={ageCategoryChoices} />
             <SelectInput source="level" choices={levelChoices} />
-            <TextInput source="scores" />
-            <TextInput source="placements" />
-            <TextInput source="penalties" />
-            <TextInput source="deductions" />
-            <TextInput source="comments" />
         </SimpleForm>
     </Create>
 );

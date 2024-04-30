@@ -21,7 +21,6 @@ export const dataProvider = {
   getMany: async (resource, params) => {
     const response = await fetch(`${API_URL}/${resource}/${params.ids}`);
     const data = await response.json();
-    console.log(data);
     const result = Array.isArray(data) ? data : [data];
     return { data: result };
   },
@@ -31,7 +30,6 @@ export const dataProvider = {
     return { data: data.data, total: data.total };
   },
   update: async (resource, params) => {
-    console.log(params.data);
     const response = await axios.put(`${API_URL}/${resource}/${params.id}`, params.data);
     return { data: response.data };
   },
@@ -45,7 +43,6 @@ export const dataProvider = {
   },
   create: async (resource, params) => {
     const response = await axios.post(`${API_URL}/${resource}`, params.data);
-    console.log(resource);
     return { data: response.data };
   },
   delete: async (resource, params) => {

@@ -1,7 +1,10 @@
-import { ReferenceField, Datagrid, DateField, List, WithListContext, ArrayField, TextField } from 'react-admin';
+import { ReferenceField, Datagrid, DateField, List, WithListContext, ArrayField, TextField, FunctionField } from 'react-admin';
 export const HeatList = () => (
-    <List>
+    <List sort={{ field: 'dateTime', order: 'ASC' }}>
         <Datagrid rowClick="show">
+            <FunctionField source="self" label="Heat" render={record => {
+                return `${record.number}`;
+            }} />
             <DateField source="dateTime" showTime options={{
                 weekday: 'long',
                 year: 'numeric',
@@ -9,8 +12,8 @@ export const HeatList = () => (
                 day: 'numeric',
                 hour: 'numeric',
                 minute: 'numeric',
-            }} />
-            <ArrayField source="couples">
+            }} sortable={false} label="Date and Time" />
+            <ArrayField source="couples" sortable={false}>
                 <WithListContext render={({ data }) => {
                     return (
                         <ul>
@@ -21,7 +24,7 @@ export const HeatList = () => (
                     )
                 }} />
             </ArrayField>
-            <ArrayField source="couples" label="Competitions">
+            <ArrayField source="couples" label="Competitions" sortable={false}>
                 <WithListContext render={({ data }) => {
 
                     function uniqueDanceCombinations(danceArray) {
