@@ -18,10 +18,10 @@ export const StudioShow = () => {
                 <NumberField source="phone" transform={value => formatPhoneNumber(value)} />
                 <EmailField source="email" />
                 <UrlField source="website" />
+                <TextField source="studioType" sx={{ textTransform: 'capitalize' }} />
                 <TextField source="contactPerson" />
                 <NumberField source="studioManagerPhone" transform={value => formatPhoneNumber(value)} />
                 <EmailField source="contactPersonEmail" />
-                <TextField source="studioType" />
                 <TextField source="studioOwner" />
                 <NumberField source="studioOwnerPhone" transform={value => formatPhoneNumber(value)} />
                 <EmailField source="studioOwnerEmail" />

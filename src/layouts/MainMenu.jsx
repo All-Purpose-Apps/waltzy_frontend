@@ -4,11 +4,13 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 
 
 export const MainMenu = () => {
+    // const userId = JSON.parse(localStorage.getItem('uid'));
+
     const studiosList = useGetList(
         'studios',
         {
             pagination: { page: 1, perPage: 10 },
-            sort: { field: 'name', order: 'DESC' }
+            sort: { field: 'name', order: 'DESC' },
         }
     );
 
@@ -28,7 +30,7 @@ export const MainMenu = () => {
         }
     );
 
-    if (studiosList.total === 0) {
+    if (studiosList.total === 0 && peopleList.total === 0 && couplesList.total === 0) {
         return (
             <Menu>
                 <Menu.Item
@@ -37,9 +39,9 @@ export const MainMenu = () => {
                     leftIcon={<DashboardIcon />}
                 />
                 <Menu.ResourceItem name="studios" />
-
-            </Menu>)
-    } else if (studiosList.total > 0 && peopleList.total === 0) {
+            </Menu>
+        )
+    } else if (studiosList.total > 0 && peopleList.total === 0 && couplesList.total === 0) {
         return (
             <Menu>
                 <Menu.Item
@@ -48,10 +50,10 @@ export const MainMenu = () => {
                     leftIcon={<DashboardIcon />}
                 />
                 <Menu.ResourceItem name="studios" />
-                <Menu.ResourceItem name="people" />
-
-            </Menu>)
-    } else if (peopleList.total > 0 && couplesList.total === 0) {
+                <Menu.ResourceItem name="person" />
+            </Menu>
+        )
+    } else if (studiosList.total > 0 && peopleList.total > 0 && couplesList.total === 0) {
         return (
             <Menu>
                 <Menu.Item
@@ -62,17 +64,17 @@ export const MainMenu = () => {
                 <Menu.ResourceItem name="studios" />
                 <Menu.ResourceItem name="person" />
                 <Menu.ResourceItem name="couples" />
-
-            </Menu>)
-    } else if (couplesList.total > 0) {
-        return (
-            <Menu>
-                <Menu.Item
-                    to="/"
-                    primaryText="Dashboard"
-                    leftIcon={<DashboardIcon />}
-                />
-                <Menu.ResourceItems />
-            </Menu>)
+            </Menu>
+        )
     }
+    return (
+        <Menu>
+            <Menu.Item
+                to="/"
+                primaryText="Dashboard"
+                leftIcon={<DashboardIcon />}
+            />
+            <Menu.ResourceItems />
+        </Menu>)
+    // }
 }
