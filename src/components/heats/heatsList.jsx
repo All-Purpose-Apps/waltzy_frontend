@@ -1,7 +1,7 @@
-import { ReferenceField, Datagrid, DateField, List, WithListContext, ArrayField, TextField, FunctionField } from 'react-admin';
+import { ReferenceField, Datagrid, DateField, List, WithListContext, ArrayField, BulkDeleteButton, FunctionField } from 'react-admin';
 export const HeatList = () => (
     <List sort={{ field: 'dateTime', order: 'ASC' }}>
-        <Datagrid rowClick="show">
+        <Datagrid rowClick="show" bulkActionButtons={<BulkDeleteButton mutationMode="pessimistic" />}>
             <FunctionField source="self" label="Heat" render={record => {
                 return `${record.number}`;
             }} />

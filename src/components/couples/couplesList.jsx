@@ -1,8 +1,8 @@
-import { Datagrid, List, TextField, ReferenceField, FunctionField } from 'react-admin';
+import { Datagrid, List, TextField, ReferenceField, BulkDeleteButton } from 'react-admin';
 
 export const CouplesList = () => (
     <List exporter={false}>
-        <Datagrid rowClick="show">
+        <Datagrid rowClick="show" bulkActionButtons={<BulkDeleteButton mutationMode="pessimistic" />}>
             <TextField source="leader.fullName" label="Leader" />
             <TextField source="follower.fullName" label="Follower" />
             <ReferenceField reference="dances" source="dance._id" label="Dance" link="show">

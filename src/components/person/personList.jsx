@@ -1,8 +1,8 @@
-import { Datagrid, DateField, List, NumberField, TextField, ReferenceField } from 'react-admin';
+import { Datagrid, BulkDeleteButton, List, NumberField, TextField, ReferenceField } from 'react-admin';
 
 export const PersonList = () => (
     <List exporter={false}>
-        <Datagrid rowClick="show">
+        <Datagrid rowClick="show" bulkActionButtons={<BulkDeleteButton mutationMode="pessimistic" />}>
             <TextField source="firstName" />
             <TextField source="lastName" />
             <NumberField source="age" />

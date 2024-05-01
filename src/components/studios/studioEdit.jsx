@@ -1,23 +1,40 @@
-import { DateInput, Edit, ReferenceInput, SimpleForm, TextInput } from 'react-admin';
+import { Edit, SelectInput, SimpleForm, TextInput, required, email, choices, Labeled } from 'react-admin';
 
 export const StudioEdit = () => (
     <Edit>
-        <SimpleForm>
-            <TextInput source="name" />
-            <TextInput source="location" fullWidth />
-            <TextInput source="phone" />
-            <TextInput source="email" fullWidth />
-            <TextInput source="website" fullWidth />
-            <TextInput source="studioType" />
+        <SimpleForm mode="onBlur" reValidateMode="onBlur">
+            <Labeled isRequired>
+                <TextInput source="name" validate={required()} />
+            </Labeled>
+            <Labeled isRequired>
+                <TextInput source="location" validate={required()} />
+            </Labeled>
+            <Labeled isRequired>
+                <TextInput source="phone" validate={required()} />
+            </Labeled>
+            <Labeled isRequired>
+                <TextInput source="email" validate={[email(), required()]} />
+            </Labeled>
+            <Labeled isRequired>
+                <TextInput source="website" validate={required()} />
+            </Labeled>
+            <Labeled isRequired>
+                <SelectInput source="studioType" choices={[
+                    { id: 'independent', name: 'Independent' },
+                    { id: 'franchise', name: 'Franchise' },
+                ]}
+                    validate={[required(), choices(['independent', 'franchise'])]}
+                />
+            </Labeled>
             <TextInput source="contactPerson" />
             <TextInput source="contactPersonPhone" />
-            <TextInput source="contactPersonEmail" fullWidth />
+            <TextInput source="contactPersonEmail" />
             <TextInput source="studioOwner" />
             <TextInput source="studioOwnerPhone" />
-            <TextInput source="studioOwnerEmail" fullWidth />
+            <TextInput source="studioOwnerEmail" />
             <TextInput source="studioManager" />
             <TextInput source="studioManagerPhone" />
-            <TextInput source="studioManagerEmail" fullWidth />
+            <TextInput source="studioManagerEmail" />
         </SimpleForm>
     </Edit>
 );
