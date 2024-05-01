@@ -4,8 +4,7 @@ import {
   ListGuesser,
   EditGuesser,
   ShowGuesser,
-  radiantLightTheme,
-  radiantDarkTheme,
+  houseLightTheme, houseDarkTheme,
   CustomRoutes
 } from "react-admin";
 import { Route } from "react-router-dom";
@@ -63,8 +62,8 @@ export const App = () => (
     dataProvider={dataProvider}
     authProvider={authProvider}
     loginPage={CustomLoginPage}
-    theme={radiantLightTheme}
-    darkTheme={radiantDarkTheme}
+    theme={houseLightTheme}
+    darkTheme={houseDarkTheme}
     layout={MainLayout}
   >
     <Resource
