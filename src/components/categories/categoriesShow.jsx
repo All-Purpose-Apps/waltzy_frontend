@@ -7,7 +7,7 @@ export const CategoryShow = (props) => {
             <SimpleShowLayout >
                 <TextField source="name" />
                 <ReferenceManyField reference="dances" target='category' source="id" label="Dances">
-                    <Datagrid rowClick="show">
+                    <Datagrid rowClick="show" bulkActionButtons={false} >
                         <TextField source="title" />
                     </Datagrid>
                 </ReferenceManyField>
