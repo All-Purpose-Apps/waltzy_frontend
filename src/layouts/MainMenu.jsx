@@ -37,8 +37,7 @@ export const MainMenu = () => {
                     leftIcon={<HomeIcon />}
                 />
                 <Menu.ResourceItem name="studios" />
-                <Menu.ResourceItem name="dances" />
-                <Menu.ResourceItem name="danceCategory" />
+
             </Menu>)
     } else if (studiosList.total > 0 && peopleList.total === 0) {
         return (
@@ -50,8 +49,7 @@ export const MainMenu = () => {
                 />
                 <Menu.ResourceItem name="studios" />
                 <Menu.ResourceItem name="people" />
-                <Menu.ResourceItem name="dances" />
-                <Menu.ResourceItem name="danceCategory" />
+
             </Menu>)
     } else if (peopleList.total > 0 && couplesList.total === 0) {
         return (
@@ -64,8 +62,7 @@ export const MainMenu = () => {
                 <Menu.ResourceItem name="studios" />
                 <Menu.ResourceItem name="person" />
                 <Menu.ResourceItem name="couples" />
-                <Menu.ResourceItem name="dances" />
-                <Menu.ResourceItem name="danceCategory" />
+
             </Menu>)
     } else if (couplesList.total > 0) {
         return (
