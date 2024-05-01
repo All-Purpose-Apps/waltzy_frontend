@@ -1,13 +1,16 @@
 import { fetchUtils } from 'react-admin';
 import axios from 'axios';
-const API_URL = 'http://localhost:3000/api_v1' || 'https://waltzy-backend-1eeb743804fc.herokuapp.com/api_v1';
+const DEV_API_URL = 'http://localhost:3000/api_v1';
+const PROD_API_URL = 'https://waltzy-backend-1eeb743804fc.herokuapp.com/api_v1';
+
+const API_URL = import.meta.env.MODE === 'production' ? PROD_API_URL : DEV_API_URL;
 
 export const dataProvider = {
   getList: async (resource, params) => {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
     const response = await fetchUtils.fetchJson(`${API_URL}/${resource}?_page=${page}&_limit=${perPage}&_sort=${field}&_order=${order}`);
-    console.log(API_URL);
+    console.log(API_URL, import.meta.env.MODE);
     return {
       data: response.json,
       total: parseInt(response.headers.get('X-Total-Count') || '', 10),
