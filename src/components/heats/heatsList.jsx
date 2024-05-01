@@ -4,7 +4,7 @@ export const HeatList = () => (
         <Datagrid rowClick="show" bulkActionButtons={<BulkDeleteButton mutationMode="pessimistic" />}>
             <FunctionField source="self" label="Heat" render={record => {
                 return `${record.number}`;
-            }} />
+            }} sortable={false} />
             <DateField source="dateTime" showTime options={{
                 weekday: 'long',
                 year: 'numeric',

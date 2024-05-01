@@ -4,8 +4,6 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 
 
 export const MainMenu = () => {
-    // const userId = JSON.parse(localStorage.getItem('uid'));
-
     const studiosList = useGetList(
         'studios',
         {

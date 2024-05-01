@@ -22,6 +22,13 @@ export const dataProvider = {
     return { data: result };
   },
   getMany: async (resource, params) => {
+    if (resource === 'couples') {
+      const couplesArray = params.ids.map((record) => record._id);
+      const response = await fetch(`${API_URL}/${resource}/${couplesArray}`);
+      const data = await response.json();
+      const result = Array.isArray(data) ? data : [data];
+      return { data: result };
+    }
     const response = await fetch(`${API_URL}/${resource}/${params.ids}`);
     const data = await response.json();
     const result = Array.isArray(data) ? data : [data];

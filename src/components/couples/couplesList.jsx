@@ -11,7 +11,7 @@ export const CouplesList = () => (
             <ReferenceField reference="dances" source="dance._id" label="Dance Category" link="show">
                 <TextField source="danceCategory.name" />
             </ReferenceField>
-            <TextField source="ageCategory" sx={{ textTransform: 'uppercase' }} />
+            <TextField source="ageCategory" sx={{ textTransform: 'uppercase' }} label="Age Category" />
             <TextField source="level" sx={{ textTransform: 'capitalize' }} />
         </Datagrid>
     </List>

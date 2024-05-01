@@ -3,8 +3,8 @@ import { Datagrid, BulkDeleteButton, List, NumberField, TextField, ReferenceFiel
 export const PersonList = () => (
     <List exporter={false}>
         <Datagrid rowClick="show" bulkActionButtons={<BulkDeleteButton mutationMode="pessimistic" />}>
-            <TextField source="firstName" />
-            <TextField source="lastName" />
+            <TextField source="firstName" label="First Name" sx={{ textTransform: 'capitalize' }} />
+            <TextField source="lastName" label="Last Name" sx={{ textTransform: 'capitalize' }} />
             <NumberField source="age" />
             <ReferenceField reference="studios" source="studio" label="Studio" link="show">
                 <TextField source="name" />

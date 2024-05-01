@@ -1,7 +1,12 @@
-import { DateField, ReferenceField, Show, SimpleShowLayout, TextField } from 'react-admin';
+import { useRecordContext, ReferenceField, Show, SimpleShowLayout, TextField } from 'react-admin';
+
+const CoupleTitle = () => {
+    const record = useRecordContext();
+    return <span>{record ? `${record.leader.fullName} & ${record.follower.fullName}` : ''}</span>;
+}
 
 export const CoupleShow = () => (
-    <Show>
+    <Show title={<CoupleTitle />}>
         <SimpleShowLayout>
             <TextField source="leader.fullName" label="Leader" />
             <TextField source="follower.fullName" label="Follower" />

@@ -76,12 +76,12 @@ export const App = () => (
       icon={DomainIcon}
     />
     <Resource
-      name="heats"
-      list={HeatList}
-      show={HeatShow}
-      create={HeatCreate}
-      edit={HeatEdit}
-      icon={LocalFireDepartmentIcon}
+      name="person"
+      list={PersonList}
+      create={PersonCreate}
+      show={PersonShow}
+      edit={PersonEdit}
+      icon={PersonIcon}
     />
     <Resource
       name="couples"
@@ -92,12 +92,12 @@ export const App = () => (
       icon={PeopleIcon}
     />
     <Resource
-      name="person"
-      list={PersonList}
-      create={PersonCreate}
-      show={PersonShow}
-      edit={PersonEdit}
-      icon={PersonIcon}
+      name="heats"
+      list={HeatList}
+      show={HeatShow}
+      create={HeatCreate}
+      // edit={HeatEdit}
+      icon={LocalFireDepartmentIcon}
     />
     {/* <Resource
       name="danceCategory"

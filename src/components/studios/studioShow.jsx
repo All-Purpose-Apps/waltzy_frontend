@@ -1,4 +1,9 @@
-import { EmailField, NumberField, Show, SimpleShowLayout, TextField, UrlField } from 'react-admin';
+import { EmailField, NumberField, Show, SimpleShowLayout, TextField, UrlField, useRecordContext } from 'react-admin';
+
+const StudioTitle = () => {
+    const record = useRecordContext();
+    return <span>{record ? record.name : ''}</span>;
+}
 
 export const StudioShow = () => {
     const formatPhoneNumber = (value) => {
@@ -11,7 +16,7 @@ export const StudioShow = () => {
     };
 
     return (
-        <Show>
+        <Show title={<StudioTitle />}>
             <SimpleShowLayout>
                 <TextField source="name" />
                 <TextField source="location" />

@@ -1,7 +1,7 @@
-import { ArrayField, ReferenceArrayField, DateField, WithListContext, Show, SimpleShowLayout, TextField } from 'react-admin';
+import { ArrayField, DateField, WithListContext, Show, SimpleShowLayout } from 'react-admin';
 
 export const HeatShow = () => (
-    <Show>
+    <Show title="Heat">
         <SimpleShowLayout>
             <DateField source="dateTime" showTime options={{
                 weekday: 'long',
