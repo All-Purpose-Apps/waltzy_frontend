@@ -7,7 +7,7 @@ const styles = {
     height: '80vh',
 }
 
-export default function Home() {
+export default function Dashboard() {
     return (
         <>
             <Title title="Home" />

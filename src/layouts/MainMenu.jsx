@@ -1,5 +1,5 @@
 import { Menu, useGetList } from 'react-admin'
-import HomeIcon from '@mui/icons-material/Home';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 
 
@@ -32,9 +32,9 @@ export const MainMenu = () => {
         return (
             <Menu>
                 <Menu.Item
-                    to="/home"
-                    primaryText="Home"
-                    leftIcon={<HomeIcon />}
+                    to="/"
+                    primaryText="Dashboard"
+                    leftIcon={<DashboardIcon />}
                 />
                 <Menu.ResourceItem name="studios" />
 
@@ -43,9 +43,9 @@ export const MainMenu = () => {
         return (
             <Menu>
                 <Menu.Item
-                    to="/home"
-                    primaryText="Home"
-                    leftIcon={<HomeIcon />}
+                    to="/"
+                    primaryText="Dashboard"
+                    leftIcon={<DashboardIcon />}
                 />
                 <Menu.ResourceItem name="studios" />
                 <Menu.ResourceItem name="people" />
@@ -55,9 +55,9 @@ export const MainMenu = () => {
         return (
             <Menu>
                 <Menu.Item
-                    to="/home"
-                    primaryText="Home"
-                    leftIcon={<HomeIcon />}
+                    to="/"
+                    primaryText="Dashboard"
+                    leftIcon={<DashboardIcon />}
                 />
                 <Menu.ResourceItem name="studios" />
                 <Menu.ResourceItem name="person" />
@@ -68,9 +68,9 @@ export const MainMenu = () => {
         return (
             <Menu>
                 <Menu.Item
-                    to="/home"
-                    primaryText="Home"
-                    leftIcon={<HomeIcon />}
+                    to="/"
+                    primaryText="Dashboard"
+                    leftIcon={<DashboardIcon />}
                 />
                 <Menu.ResourceItems />
             </Menu>)

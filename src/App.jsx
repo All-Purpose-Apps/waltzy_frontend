@@ -11,7 +11,7 @@ import { Route } from "react-router-dom";
 import { dataProvider } from "./dataProvider";
 import { FirebaseAuthProvider } from "react-admin-firebase";
 
-import Home from "./views/Home"
+import Dashboard from "./views/Dashboard"
 //Category
 import { CategoryList } from "./components/categories/categoriesList";
 import { CategoryCreate } from "./components/categories/categoriesCreate";
@@ -65,7 +65,16 @@ export const App = () => (
     theme={houseLightTheme}
     darkTheme={houseDarkTheme}
     layout={MainLayout}
+    dashboard={Dashboard}
   >
+    <Resource
+      name="studios"
+      list={StudioList}
+      create={StudioCreate}
+      show={StudioShow}
+      edit={StudioEdit}
+      icon={DomainIcon}
+    />
     <Resource
       name="heats"
       list={HeatList}
@@ -90,14 +99,6 @@ export const App = () => (
       edit={PersonEdit}
       icon={PersonIcon}
     />
-    <Resource
-      name="studios"
-      list={StudioList}
-      create={StudioCreate}
-      show={StudioShow}
-      edit={StudioEdit}
-      icon={DomainIcon}
-    />
     {/* <Resource
       name="danceCategory"
       options={{ label: "Categories" }}
@@ -116,7 +117,7 @@ export const App = () => (
       icon={DirectionsRunIcon}
     /> */}
     <CustomRoutes>
-      <Route path="/home" element={<Home />} />
+      <Route path="/" element={<Dashboard />} />
     </CustomRoutes>
   </Admin>
 );
